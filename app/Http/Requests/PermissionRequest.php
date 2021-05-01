@@ -23,8 +23,14 @@ class PermissionRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => "required|unique:permissions,name"
-        ];
+        if($this->method() == 'POST'){
+            return [
+                'name' => "required|unique:permissions,name"
+            ];
+        }else{
+            return [
+                'name' => "required"
+            ];
+        }
     }
 }

@@ -53,7 +53,7 @@
                             @endif
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Permission') }}</a>
+                            <a class="nav-link" href="{{ route('permission.index') }}">{{ __('Permission') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">{{ __('Role') }}</a>

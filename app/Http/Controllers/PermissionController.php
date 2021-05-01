@@ -71,9 +71,11 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PermissionRequest $request, Permission $permission)
     {
-        //
+        $permission->update($request->validated());
+        session()->flash('message', 'Permission Updated Successfully');
+        return back();
     }
 
     /**
