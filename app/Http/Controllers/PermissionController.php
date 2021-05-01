@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\PermissionRequest;
+use App\Models\Permission;
 
 class PermissionController extends Controller
 {
@@ -33,9 +34,11 @@ class PermissionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PermissionRequest $request)
+    public function store(PermissionRequest $permission)
     {
-        return $request->all();
+        Permission::create($permission->validated());
+        session()->flash('message', 'Permission Created Successfully');
+        return back();
     }
 
     /**
