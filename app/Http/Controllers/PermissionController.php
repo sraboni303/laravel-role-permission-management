@@ -15,7 +15,8 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        return view('permissions.index');
+        $permissions = Permission::all();
+        return view('permissions.index', compact('permissions'));
     }
 
     /**
@@ -81,8 +82,10 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Permission $permission)
     {
-        //
+        $permission->delete();
+        session()->flash('message', 'Permission Deleted Successfully!');
+        return back();
     }
 }
