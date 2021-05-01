@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PermissionRequest;
 
 class PermissionController extends Controller
 {
@@ -32,9 +33,9 @@ class PermissionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PermissionRequest $request)
     {
-        //
+        return $request->all();
     }
 
     /**

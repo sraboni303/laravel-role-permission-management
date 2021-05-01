@@ -6,7 +6,9 @@
     @if (session()->has('message'))
         <p class="alert alert-success">{{ session()->get('message') }}</p>
     @endif
-    <form>
+    <form action="{{ route('permission.store') }}" method="POST">
+        @csrf
+
         <div class="mb-3">
           <label for="name" class="form-label">Permission Name</label>
           <input type="text" class="form-control @error('name') is-invalid @enderror" id="name">
