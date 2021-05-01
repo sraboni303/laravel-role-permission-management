@@ -20,7 +20,7 @@
             <th>{{ $loop->index+1 }}</th>
             <td>{{ $permission->name }}</td>
             <td>
-                <a href="#" class="btn btn-sm btn-success">Edit</a>
+                <a href="{{ route('permission.edit', $permission->id) }}" class="btn btn-sm btn-success">Edit</a>
                 <form action="{{ route('permission.destroy', $permission->id) }}" class="d-inline-block" method="POST">
                     @csrf
                     @method('DELETE')
